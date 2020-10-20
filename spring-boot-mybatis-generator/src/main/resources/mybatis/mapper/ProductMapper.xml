@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cube.dao.ProductMapper" >
+  <resultMap id="BaseResultMap" type="com.cube.domain.Product" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="sale_product" property="saleProduct" jdbcType="VARCHAR" />
+    <result column="version" property="version" jdbcType="VARCHAR" />
+    <result column="decoration_status" property="decorationStatus" jdbcType="VARCHAR" />
+    <result column="rent_model" property="rentModel" jdbcType="VARCHAR" />
+    <result column="house_state_plan_type" property="houseStatePlanType" jdbcType="TINYINT" />
+    <result column="status" property="status" jdbcType="TINYINT" />
+    <result column="creator" property="creator" jdbcType="INTEGER" />
+    <result column="deleted_at" property="deletedAt" jdbcType="TIMESTAMP" />
+    <result column="created_at" property="createdAt" jdbcType="TIMESTAMP" />
+    <result column="updated_at" property="updatedAt" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.cube.domain.Product" extends="BaseResultMap" >
+    <result column="product_des" property="productDes" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, sale_product, version, decoration_status, rent_model, house_state_plan_type, 
+    status, creator, deleted_at, created_at, updated_at
+  </sql>
+  <sql id="Blob_Column_List" >
+    product_des
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from bi_danke_products
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from bi_danke_products
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.cube.domain.Product" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into bi_danke_products (sale_product, version, decoration_status, 
+      rent_model, house_state_plan_type, status, 
+      creator, deleted_at, created_at, 
+      updated_at, product_des)
+    values (#{saleProduct,jdbcType=VARCHAR}, #{version,jdbcType=VARCHAR}, #{decorationStatus,jdbcType=VARCHAR}, 
+      #{rentModel,jdbcType=VARCHAR}, #{houseStatePlanType,jdbcType=TINYINT}, #{status,jdbcType=TINYINT}, 
+      #{creator,jdbcType=INTEGER}, #{deletedAt,jdbcType=TIMESTAMP}, #{createdAt,jdbcType=TIMESTAMP}, 
+      #{updatedAt,jdbcType=TIMESTAMP}, #{productDes,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.cube.domain.Product" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into bi_danke_products
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="saleProduct != null" >
+        sale_product,
+      </if>
+      <if test="version != null" >
+        version,
+      </if>
+      <if test="decorationStatus != null" >
+        decoration_status,
+      </if>
+      <if test="rentModel != null" >
+        rent_model,
+      </if>
+      <if test="houseStatePlanType != null" >
+        house_state_plan_type,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="creator != null" >
+        creator,
+      </if>
+      <if test="deletedAt != null" >
+        deleted_at,
+      </if>
+      <if test="createdAt != null" >
+        created_at,
+      </if>
+      <if test="updatedAt != null" >
+        updated_at,
+      </if>
+      <if test="productDes != null" >
+        product_des,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="saleProduct != null" >
+        #{saleProduct,jdbcType=VARCHAR},
+      </if>
+      <if test="version != null" >
+        #{version,jdbcType=VARCHAR},
+      </if>
+      <if test="decorationStatus != null" >
+        #{decorationStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="rentModel != null" >
+        #{rentModel,jdbcType=VARCHAR},
+      </if>
+      <if test="houseStatePlanType != null" >
+        #{houseStatePlanType,jdbcType=TINYINT},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=TINYINT},
+      </if>
+      <if test="creator != null" >
+        #{creator,jdbcType=INTEGER},
+      </if>
+      <if test="deletedAt != null" >
+        #{deletedAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createdAt != null" >
+        #{createdAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedAt != null" >
+        #{updatedAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="productDes != null" >
+        #{productDes,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.cube.domain.Product" >
+    update bi_danke_products
+    <set >
+      <if test="saleProduct != null" >
+        sale_product = #{saleProduct,jdbcType=VARCHAR},
+      </if>
+      <if test="version != null" >
+        version = #{version,jdbcType=VARCHAR},
+      </if>
+      <if test="decorationStatus != null" >
+        decoration_status = #{decorationStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="rentModel != null" >
+        rent_model = #{rentModel,jdbcType=VARCHAR},
+      </if>
+      <if test="houseStatePlanType != null" >
+        house_state_plan_type = #{houseStatePlanType,jdbcType=TINYINT},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=TINYINT},
+      </if>
+      <if test="creator != null" >
+        creator = #{creator,jdbcType=INTEGER},
+      </if>
+      <if test="deletedAt != null" >
+        deleted_at = #{deletedAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createdAt != null" >
+        created_at = #{createdAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedAt != null" >
+        updated_at = #{updatedAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="productDes != null" >
+        product_des = #{productDes,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.cube.domain.Product" >
+    update bi_danke_products
+    set sale_product = #{saleProduct,jdbcType=VARCHAR},
+      version = #{version,jdbcType=VARCHAR},
+      decoration_status = #{decorationStatus,jdbcType=VARCHAR},
+      rent_model = #{rentModel,jdbcType=VARCHAR},
+      house_state_plan_type = #{houseStatePlanType,jdbcType=TINYINT},
+      status = #{status,jdbcType=TINYINT},
+      creator = #{creator,jdbcType=INTEGER},
+      deleted_at = #{deletedAt,jdbcType=TIMESTAMP},
+      created_at = #{createdAt,jdbcType=TIMESTAMP},
+      updated_at = #{updatedAt,jdbcType=TIMESTAMP},
+      product_des = #{productDes,jdbcType=LONGVARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.cube.domain.Product" >
+    update bi_danke_products
+    set sale_product = #{saleProduct,jdbcType=VARCHAR},
+      version = #{version,jdbcType=VARCHAR},
+      decoration_status = #{decorationStatus,jdbcType=VARCHAR},
+      rent_model = #{rentModel,jdbcType=VARCHAR},
+      house_state_plan_type = #{houseStatePlanType,jdbcType=TINYINT},
+      status = #{status,jdbcType=TINYINT},
+      creator = #{creator,jdbcType=INTEGER},
+      deleted_at = #{deletedAt,jdbcType=TIMESTAMP},
+      created_at = #{createdAt,jdbcType=TIMESTAMP},
+      updated_at = #{updatedAt,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

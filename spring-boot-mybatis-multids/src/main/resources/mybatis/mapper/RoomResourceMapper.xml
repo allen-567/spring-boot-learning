@@ -1,0 +1,412 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cube.mybatis.multids.mapper.RoomResourceMapper" >
+  <resultMap id="BaseResultMap" type="com.cube.mybatis.multids.model.RoomResource" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="room_id" property="roomId" jdbcType="INTEGER" />
+    <result column="room_code" property="roomCode" jdbcType="VARCHAR" />
+    <result column="suite_id" property="suiteId" jdbcType="INTEGER" />
+    <result column="price" property="price" jdbcType="DOUBLE" />
+    <result column="area" property="area" jdbcType="DOUBLE" />
+    <result column="face" property="face" jdbcType="VARCHAR" />
+    <result column="rent_type" property="rentType" jdbcType="VARCHAR" />
+    <result column="has_toilet" property="hasToilet" jdbcType="VARCHAR" />
+    <result column="has_balcony" property="hasBalcony" jdbcType="VARCHAR" />
+    <result column="room_status" property="roomStatus" jdbcType="VARCHAR" />
+    <result column="status" property="status" jdbcType="VARCHAR" />
+    <result column="xiaoqu_name" property="xiaoquName" jdbcType="VARCHAR" />
+    <result column="is_parking" property="isParking" jdbcType="DOUBLE" />
+    <result column="block_name" property="blockName" jdbcType="VARCHAR" />
+    <result column="distance" property="distance" jdbcType="INTEGER" />
+    <result column="vacancy_days" property="vacancyDays" jdbcType="INTEGER" />
+    <result column="created_at" property="createdAt" jdbcType="TIMESTAMP" />
+    <result column="city" property="city" jdbcType="VARCHAR" />
+    <result column="bedroom_num" property="bedroomNum" jdbcType="INTEGER" />
+    <result column="toilet_num" property="toiletNum" jdbcType="INTEGER" />
+    <result column="sf_remain_days" property="sfRemainDays" jdbcType="INTEGER" />
+    <result column="has_month_rent" property="hasMonthRent" jdbcType="VARCHAR" />
+    <result column="dk_avg_price" property="dkAvgPrice" jdbcType="INTEGER" />
+    <result column="hdnames_mon" property="hdnamesMon" jdbcType="VARCHAR" />
+    <result column="cashback_mon" property="cashbackMon" jdbcType="INTEGER" />
+    <result column="cutdirect_mon" property="cutdirectMon" jdbcType="INTEGER" />
+    <result column="hdnames_year" property="hdnamesYear" jdbcType="VARCHAR" />
+    <result column="cashback_year" property="cashbackYear" jdbcType="INTEGER" />
+    <result column="cutdirect_year" property="cutdirectYear" jdbcType="INTEGER" />
+    <result column="rent_gender" property="rentGender" jdbcType="VARCHAR" />
+    <result column="rent_num" property="rentNum" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, room_id, room_code, suite_id, price, area, face, rent_type, has_toilet, has_balcony, 
+    room_status, status, xiaoqu_name, is_parking, block_name, distance, vacancy_days, 
+    created_at, city, bedroom_num, toilet_num, sf_remain_days, has_month_rent, dk_avg_price, 
+    hdnames_mon, cashback_mon, cutdirect_mon, hdnames_year, cashback_year, cutdirect_year, 
+    rent_gender, rent_num
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from room_resource
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from room_resource
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.cube.mybatis.multids.model.RoomResource" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into room_resource (room_id, room_code, suite_id, 
+      price, area, face, rent_type, 
+      has_toilet, has_balcony, room_status, 
+      status, xiaoqu_name, is_parking, 
+      block_name, distance, vacancy_days, 
+      created_at, city, bedroom_num, 
+      toilet_num, sf_remain_days, has_month_rent, 
+      dk_avg_price, hdnames_mon, cashback_mon, 
+      cutdirect_mon, hdnames_year, cashback_year, 
+      cutdirect_year, rent_gender, rent_num
+      )
+    values (#{roomId,jdbcType=INTEGER}, #{roomCode,jdbcType=VARCHAR}, #{suiteId,jdbcType=INTEGER}, 
+      #{price,jdbcType=DOUBLE}, #{area,jdbcType=DOUBLE}, #{face,jdbcType=VARCHAR}, #{rentType,jdbcType=VARCHAR}, 
+      #{hasToilet,jdbcType=VARCHAR}, #{hasBalcony,jdbcType=VARCHAR}, #{roomStatus,jdbcType=VARCHAR}, 
+      #{status,jdbcType=VARCHAR}, #{xiaoquName,jdbcType=VARCHAR}, #{isParking,jdbcType=DOUBLE}, 
+      #{blockName,jdbcType=VARCHAR}, #{distance,jdbcType=INTEGER}, #{vacancyDays,jdbcType=INTEGER}, 
+      #{createdAt,jdbcType=TIMESTAMP}, #{city,jdbcType=VARCHAR}, #{bedroomNum,jdbcType=INTEGER}, 
+      #{toiletNum,jdbcType=INTEGER}, #{sfRemainDays,jdbcType=INTEGER}, #{hasMonthRent,jdbcType=VARCHAR}, 
+      #{dkAvgPrice,jdbcType=INTEGER}, #{hdnamesMon,jdbcType=VARCHAR}, #{cashbackMon,jdbcType=INTEGER}, 
+      #{cutdirectMon,jdbcType=INTEGER}, #{hdnamesYear,jdbcType=VARCHAR}, #{cashbackYear,jdbcType=INTEGER}, 
+      #{cutdirectYear,jdbcType=INTEGER}, #{rentGender,jdbcType=VARCHAR}, #{rentNum,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.cube.mybatis.multids.model.RoomResource" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into room_resource
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="roomId != null" >
+        room_id,
+      </if>
+      <if test="roomCode != null" >
+        room_code,
+      </if>
+      <if test="suiteId != null" >
+        suite_id,
+      </if>
+      <if test="price != null" >
+        price,
+      </if>
+      <if test="area != null" >
+        area,
+      </if>
+      <if test="face != null" >
+        face,
+      </if>
+      <if test="rentType != null" >
+        rent_type,
+      </if>
+      <if test="hasToilet != null" >
+        has_toilet,
+      </if>
+      <if test="hasBalcony != null" >
+        has_balcony,
+      </if>
+      <if test="roomStatus != null" >
+        room_status,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="xiaoquName != null" >
+        xiaoqu_name,
+      </if>
+      <if test="isParking != null" >
+        is_parking,
+      </if>
+      <if test="blockName != null" >
+        block_name,
+      </if>
+      <if test="distance != null" >
+        distance,
+      </if>
+      <if test="vacancyDays != null" >
+        vacancy_days,
+      </if>
+      <if test="createdAt != null" >
+        created_at,
+      </if>
+      <if test="city != null" >
+        city,
+      </if>
+      <if test="bedroomNum != null" >
+        bedroom_num,
+      </if>
+      <if test="toiletNum != null" >
+        toilet_num,
+      </if>
+      <if test="sfRemainDays != null" >
+        sf_remain_days,
+      </if>
+      <if test="hasMonthRent != null" >
+        has_month_rent,
+      </if>
+      <if test="dkAvgPrice != null" >
+        dk_avg_price,
+      </if>
+      <if test="hdnamesMon != null" >
+        hdnames_mon,
+      </if>
+      <if test="cashbackMon != null" >
+        cashback_mon,
+      </if>
+      <if test="cutdirectMon != null" >
+        cutdirect_mon,
+      </if>
+      <if test="hdnamesYear != null" >
+        hdnames_year,
+      </if>
+      <if test="cashbackYear != null" >
+        cashback_year,
+      </if>
+      <if test="cutdirectYear != null" >
+        cutdirect_year,
+      </if>
+      <if test="rentGender != null" >
+        rent_gender,
+      </if>
+      <if test="rentNum != null" >
+        rent_num,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="roomId != null" >
+        #{roomId,jdbcType=INTEGER},
+      </if>
+      <if test="roomCode != null" >
+        #{roomCode,jdbcType=VARCHAR},
+      </if>
+      <if test="suiteId != null" >
+        #{suiteId,jdbcType=INTEGER},
+      </if>
+      <if test="price != null" >
+        #{price,jdbcType=DOUBLE},
+      </if>
+      <if test="area != null" >
+        #{area,jdbcType=DOUBLE},
+      </if>
+      <if test="face != null" >
+        #{face,jdbcType=VARCHAR},
+      </if>
+      <if test="rentType != null" >
+        #{rentType,jdbcType=VARCHAR},
+      </if>
+      <if test="hasToilet != null" >
+        #{hasToilet,jdbcType=VARCHAR},
+      </if>
+      <if test="hasBalcony != null" >
+        #{hasBalcony,jdbcType=VARCHAR},
+      </if>
+      <if test="roomStatus != null" >
+        #{roomStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="xiaoquName != null" >
+        #{xiaoquName,jdbcType=VARCHAR},
+      </if>
+      <if test="isParking != null" >
+        #{isParking,jdbcType=DOUBLE},
+      </if>
+      <if test="blockName != null" >
+        #{blockName,jdbcType=VARCHAR},
+      </if>
+      <if test="distance != null" >
+        #{distance,jdbcType=INTEGER},
+      </if>
+      <if test="vacancyDays != null" >
+        #{vacancyDays,jdbcType=INTEGER},
+      </if>
+      <if test="createdAt != null" >
+        #{createdAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="city != null" >
+        #{city,jdbcType=VARCHAR},
+      </if>
+      <if test="bedroomNum != null" >
+        #{bedroomNum,jdbcType=INTEGER},
+      </if>
+      <if test="toiletNum != null" >
+        #{toiletNum,jdbcType=INTEGER},
+      </if>
+      <if test="sfRemainDays != null" >
+        #{sfRemainDays,jdbcType=INTEGER},
+      </if>
+      <if test="hasMonthRent != null" >
+        #{hasMonthRent,jdbcType=VARCHAR},
+      </if>
+      <if test="dkAvgPrice != null" >
+        #{dkAvgPrice,jdbcType=INTEGER},
+      </if>
+      <if test="hdnamesMon != null" >
+        #{hdnamesMon,jdbcType=VARCHAR},
+      </if>
+      <if test="cashbackMon != null" >
+        #{cashbackMon,jdbcType=INTEGER},
+      </if>
+      <if test="cutdirectMon != null" >
+        #{cutdirectMon,jdbcType=INTEGER},
+      </if>
+      <if test="hdnamesYear != null" >
+        #{hdnamesYear,jdbcType=VARCHAR},
+      </if>
+      <if test="cashbackYear != null" >
+        #{cashbackYear,jdbcType=INTEGER},
+      </if>
+      <if test="cutdirectYear != null" >
+        #{cutdirectYear,jdbcType=INTEGER},
+      </if>
+      <if test="rentGender != null" >
+        #{rentGender,jdbcType=VARCHAR},
+      </if>
+      <if test="rentNum != null" >
+        #{rentNum,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.cube.mybatis.multids.model.RoomResource" >
+    update room_resource
+    <set >
+      <if test="roomId != null" >
+        room_id = #{roomId,jdbcType=INTEGER},
+      </if>
+      <if test="roomCode != null" >
+        room_code = #{roomCode,jdbcType=VARCHAR},
+      </if>
+      <if test="suiteId != null" >
+        suite_id = #{suiteId,jdbcType=INTEGER},
+      </if>
+      <if test="price != null" >
+        price = #{price,jdbcType=DOUBLE},
+      </if>
+      <if test="area != null" >
+        area = #{area,jdbcType=DOUBLE},
+      </if>
+      <if test="face != null" >
+        face = #{face,jdbcType=VARCHAR},
+      </if>
+      <if test="rentType != null" >
+        rent_type = #{rentType,jdbcType=VARCHAR},
+      </if>
+      <if test="hasToilet != null" >
+        has_toilet = #{hasToilet,jdbcType=VARCHAR},
+      </if>
+      <if test="hasBalcony != null" >
+        has_balcony = #{hasBalcony,jdbcType=VARCHAR},
+      </if>
+      <if test="roomStatus != null" >
+        room_status = #{roomStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="xiaoquName != null" >
+        xiaoqu_name = #{xiaoquName,jdbcType=VARCHAR},
+      </if>
+      <if test="isParking != null" >
+        is_parking = #{isParking,jdbcType=DOUBLE},
+      </if>
+      <if test="blockName != null" >
+        block_name = #{blockName,jdbcType=VARCHAR},
+      </if>
+      <if test="distance != null" >
+        distance = #{distance,jdbcType=INTEGER},
+      </if>
+      <if test="vacancyDays != null" >
+        vacancy_days = #{vacancyDays,jdbcType=INTEGER},
+      </if>
+      <if test="createdAt != null" >
+        created_at = #{createdAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="city != null" >
+        city = #{city,jdbcType=VARCHAR},
+      </if>
+      <if test="bedroomNum != null" >
+        bedroom_num = #{bedroomNum,jdbcType=INTEGER},
+      </if>
+      <if test="toiletNum != null" >
+        toilet_num = #{toiletNum,jdbcType=INTEGER},
+      </if>
+      <if test="sfRemainDays != null" >
+        sf_remain_days = #{sfRemainDays,jdbcType=INTEGER},
+      </if>
+      <if test="hasMonthRent != null" >
+        has_month_rent = #{hasMonthRent,jdbcType=VARCHAR},
+      </if>
+      <if test="dkAvgPrice != null" >
+        dk_avg_price = #{dkAvgPrice,jdbcType=INTEGER},
+      </if>
+      <if test="hdnamesMon != null" >
+        hdnames_mon = #{hdnamesMon,jdbcType=VARCHAR},
+      </if>
+      <if test="cashbackMon != null" >
+        cashback_mon = #{cashbackMon,jdbcType=INTEGER},
+      </if>
+      <if test="cutdirectMon != null" >
+        cutdirect_mon = #{cutdirectMon,jdbcType=INTEGER},
+      </if>
+      <if test="hdnamesYear != null" >
+        hdnames_year = #{hdnamesYear,jdbcType=VARCHAR},
+      </if>
+      <if test="cashbackYear != null" >
+        cashback_year = #{cashbackYear,jdbcType=INTEGER},
+      </if>
+      <if test="cutdirectYear != null" >
+        cutdirect_year = #{cutdirectYear,jdbcType=INTEGER},
+      </if>
+      <if test="rentGender != null" >
+        rent_gender = #{rentGender,jdbcType=VARCHAR},
+      </if>
+      <if test="rentNum != null" >
+        rent_num = #{rentNum,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.cube.mybatis.multids.model.RoomResource" >
+    update room_resource
+    set room_id = #{roomId,jdbcType=INTEGER},
+      room_code = #{roomCode,jdbcType=VARCHAR},
+      suite_id = #{suiteId,jdbcType=INTEGER},
+      price = #{price,jdbcType=DOUBLE},
+      area = #{area,jdbcType=DOUBLE},
+      face = #{face,jdbcType=VARCHAR},
+      rent_type = #{rentType,jdbcType=VARCHAR},
+      has_toilet = #{hasToilet,jdbcType=VARCHAR},
+      has_balcony = #{hasBalcony,jdbcType=VARCHAR},
+      room_status = #{roomStatus,jdbcType=VARCHAR},
+      status = #{status,jdbcType=VARCHAR},
+      xiaoqu_name = #{xiaoquName,jdbcType=VARCHAR},
+      is_parking = #{isParking,jdbcType=DOUBLE},
+      block_name = #{blockName,jdbcType=VARCHAR},
+      distance = #{distance,jdbcType=INTEGER},
+      vacancy_days = #{vacancyDays,jdbcType=INTEGER},
+      created_at = #{createdAt,jdbcType=TIMESTAMP},
+      city = #{city,jdbcType=VARCHAR},
+      bedroom_num = #{bedroomNum,jdbcType=INTEGER},
+      toilet_num = #{toiletNum,jdbcType=INTEGER},
+      sf_remain_days = #{sfRemainDays,jdbcType=INTEGER},
+      has_month_rent = #{hasMonthRent,jdbcType=VARCHAR},
+      dk_avg_price = #{dkAvgPrice,jdbcType=INTEGER},
+      hdnames_mon = #{hdnamesMon,jdbcType=VARCHAR},
+      cashback_mon = #{cashbackMon,jdbcType=INTEGER},
+      cutdirect_mon = #{cutdirectMon,jdbcType=INTEGER},
+      hdnames_year = #{hdnamesYear,jdbcType=VARCHAR},
+      cashback_year = #{cashbackYear,jdbcType=INTEGER},
+      cutdirect_year = #{cutdirectYear,jdbcType=INTEGER},
+      rent_gender = #{rentGender,jdbcType=VARCHAR},
+      rent_num = #{rentNum,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,1397 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cube.mybatis.multids.mapper.RoomMapper" >
+  <resultMap id="BaseResultMap" type="com.cube.mybatis.multids.model.Room" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="code" property="code" jdbcType="VARCHAR" />
+    <result column="suite_id" property="suiteId" jdbcType="INTEGER" />
+    <result column="room_number" property="roomNumber" jdbcType="VARCHAR" />
+    <result column="customer_id" property="customerId" jdbcType="INTEGER" />
+    <result column="dealer_id" property="dealerId" jdbcType="INTEGER" />
+    <result column="private_id" property="privateId" jdbcType="INTEGER" />
+    <result column="contract_signed_date" property="contractSignedDate" jdbcType="DATE" />
+    <result column="area" property="area" jdbcType="SMALLINT" />
+    <result column="price" property="price" jdbcType="INTEGER" />
+    <result column="month_price" property="monthPrice" jdbcType="INTEGER" />
+    <result column="status" property="status" jdbcType="CHAR" />
+    <result column="unusable_status" property="unusableStatus" jdbcType="VARCHAR" />
+    <result column="sold_out_status" property="soldOutStatus" jdbcType="VARCHAR" />
+    <result column="rent_type" property="rentType" jdbcType="VARCHAR" />
+    <result column="fire" property="fire" jdbcType="CHAR" />
+    <result column="has_error" property="hasError" jdbcType="TINYINT" />
+    <result column="city_name" property="cityName" jdbcType="VARCHAR" />
+    <result column="face" property="face" jdbcType="CHAR" />
+    <result column="available_date" property="availableDate" jdbcType="DATE" />
+    <result column="rent_begin_date" property="rentBeginDate" jdbcType="DATE" />
+    <result column="rent_end_date" property="rentEndDate" jdbcType="DATE" />
+    <result column="is_separated_room" property="isSeparatedRoom" jdbcType="CHAR" />
+    <result column="is_abs" property="isAbs" jdbcType="CHAR" />
+    <result column="has_toilet" property="hasToilet" jdbcType="CHAR" />
+    <result column="has_shower" property="hasShower" jdbcType="CHAR" />
+    <result column="has_balcony" property="hasBalcony" jdbcType="CHAR" />
+    <result column="has_tv" property="hasTv" jdbcType="CHAR" />
+    <result column="has_terrace" property="hasTerrace" jdbcType="CHAR" />
+    <result column="has_storeroom" property="hasStoreroom" jdbcType="CHAR" />
+    <result column="bay_window_area" property="bayWindowArea" jdbcType="DECIMAL" />
+    <result column="allow_quarterly" property="allowQuarterly" jdbcType="CHAR" />
+    <result column="living_area" property="livingArea" jdbcType="DECIMAL" />
+    <result column="toilet_area" property="toiletArea" jdbcType="DECIMAL" />
+    <result column="balcony_area" property="balconyArea" jdbcType="DECIMAL" />
+    <result column="terrace_area" property="terraceArea" jdbcType="DECIMAL" />
+    <result column="storeroom_area" property="storeroomArea" jdbcType="DECIMAL" />
+    <result column="has_image" property="hasImage" jdbcType="CHAR" />
+    <result column="version" property="version" jdbcType="CHAR" />
+    <result column="style" property="style" jdbcType="VARCHAR" />
+    <result column="lighting" property="lighting" jdbcType="CHAR" />
+    <result column="is_small_window" property="isSmallWindow" jdbcType="CHAR" />
+    <result column="has_curtains" property="hasCurtains" jdbcType="CHAR" />
+    <result column="is_rent_furniture" property="isRentFurniture" jdbcType="CHAR" />
+    <result column="is_leave_furniture" property="isLeaveFurniture" jdbcType="CHAR" />
+    <result column="is_wall_white" property="isWallWhite" jdbcType="CHAR" />
+    <result column="shape" property="shape" jdbcType="VARCHAR" />
+    <result column="shape_note" property="shapeNote" jdbcType="VARCHAR" />
+    <result column="address_text" property="addressText" jdbcType="VARCHAR" />
+    <result column="search_text" property="searchText" jdbcType="VARCHAR" />
+    <result column="disable_expire_date" property="disableExpireDate" jdbcType="DATE" />
+    <result column="disable_by" property="disableBy" jdbcType="INTEGER" />
+    <result column="disable_note" property="disableNote" jdbcType="VARCHAR" />
+    <result column="image_number" property="imageNumber" jdbcType="TINYINT" />
+    <result column="is_photographer_uploaded" property="isPhotographerUploaded" jdbcType="CHAR" />
+    <result column="advantages" property="advantages" jdbcType="VARCHAR" />
+    <result column="deleted_at" property="deletedAt" jdbcType="TIMESTAMP" />
+    <result column="auto_change_date" property="autoChangeDate" jdbcType="DATE" />
+    <result column="auto_change_end_date" property="autoChangeEndDate" jdbcType="DATE" />
+    <result column="auto_status" property="autoStatus" jdbcType="VARCHAR" />
+    <result column="created_at" property="createdAt" jdbcType="TIMESTAMP" />
+    <result column="updated_at" property="updatedAt" jdbcType="TIMESTAMP" />
+    <result column="has_video" property="hasVideo" jdbcType="CHAR" />
+    <result column="videos" property="videos" jdbcType="VARCHAR" />
+    <result column="video_rack_status" property="videoRackStatus" jdbcType="CHAR" />
+    <result column="room_length" property="roomLength" jdbcType="DOUBLE" />
+    <result column="room_width" property="roomWidth" jdbcType="DOUBLE" />
+    <result column="room_type" property="roomType" jdbcType="VARCHAR" />
+    <result column="has_cloakroom" property="hasCloakroom" jdbcType="VARCHAR" />
+    <result column="has_bay_window" property="hasBayWindow" jdbcType="VARCHAR" />
+    <result column="has_window" property="hasWindow" jdbcType="VARCHAR" />
+    <result column="is_wired_loft" property="isWiredLoft" jdbcType="VARCHAR" />
+    <result column="is_wired_long_and_thin" property="isWiredLongAndThin" jdbcType="VARCHAR" />
+    <result column="is_bad_lighting" property="isBadLighting" jdbcType="VARCHAR" />
+    <result column="is_private_window" property="isPrivateWindow" jdbcType="VARCHAR" />
+    <result column="is_near_street" property="isNearStreet" jdbcType="VARCHAR" />
+    <result column="cleaning_tools_tag" property="cleaningToolsTag" jdbcType="VARCHAR" />
+    <result column="door_tag" property="doorTag" jdbcType="VARCHAR" />
+    <result column="floor_tag" property="floorTag" jdbcType="VARCHAR" />
+    <result column="kitchen_ware_tag" property="kitchenWareTag" jdbcType="VARCHAR" />
+    <result column="is_house_state_readonly" property="isHouseStateReadonly" jdbcType="VARCHAR" />
+    <result column="is_price_readonly" property="isPriceReadonly" jdbcType="VARCHAR" />
+    <result column="is_room_info_readonly" property="isRoomInfoReadonly" jdbcType="VARCHAR" />
+    <result column="is_rough_room" property="isRoughRoom" jdbcType="VARCHAR" />
+    <result column="roof_tag" property="roofTag" jdbcType="VARCHAR" />
+    <result column="wall_floor_tag" property="wallFloorTag" jdbcType="VARCHAR" />
+    <result column="wall_tag" property="wallTag" jdbcType="VARCHAR" />
+    <result column="window_tag" property="windowTag" jdbcType="VARCHAR" />
+    <result column="others_tear_down_tag" property="othersTearDownTag" jdbcType="VARCHAR" />
+    <result column="toilet_tag" property="toiletTag" jdbcType="VARCHAR" />
+    <result column="has_private_kitchen" property="hasPrivateKitchen" jdbcType="VARCHAR" />
+    <result column="has_toilet_in_bathroom" property="hasToiletInBathroom" jdbcType="VARCHAR" />
+    <result column="toilet_type" property="toiletType" jdbcType="VARCHAR" />
+    <result column="temp_price_yuan" property="tempPriceYuan" jdbcType="INTEGER" />
+    <result column="revalue_price_yuan" property="revaluePriceYuan" jdbcType="INTEGER" />
+    <result column="plan_id" property="planId" jdbcType="INTEGER" />
+    <result column="house_id" property="houseId" jdbcType="INTEGER" />
+    <result column="bi_room_id" property="biRoomId" jdbcType="INTEGER" />
+    <result column="isz_house_id" property="iszHouseId" jdbcType="VARCHAR" />
+    <result column="isz_room_id" property="iszRoomId" jdbcType="VARCHAR" />
+    <result column="isz_room_no" property="iszRoomNo" jdbcType="VARCHAR" />
+    <result column="bedroom_type" property="bedroomType" jdbcType="VARCHAR" />
+    <result column="is_verify" property="isVerify" jdbcType="CHAR" />
+    <result column="images" property="images" jdbcType="LONGVARCHAR" />
+    <result column="documents" property="documents" jdbcType="LONGVARCHAR" />
+    <result column="auto_note" property="autoNote" jdbcType="LONGVARCHAR" />
+  </resultMap>
+
+  <sql id="Base_Column_List" >
+    id, code, suite_id, room_number, customer_id, dealer_id, private_id, contract_signed_date, 
+    area, price, month_price, status, unusable_status, sold_out_status, rent_type, fire, 
+    has_error, city_name, face, available_date, rent_begin_date, rent_end_date, is_separated_room, 
+    is_abs, has_toilet, has_shower, has_balcony, has_tv, has_terrace, has_storeroom, 
+    bay_window_area, allow_quarterly, living_area, toilet_area, balcony_area, terrace_area, 
+    storeroom_area, has_image, version, style, lighting, is_small_window, has_curtains, 
+    is_rent_furniture, is_leave_furniture, is_wall_white, shape, shape_note, address_text, 
+    search_text, disable_expire_date, disable_by, disable_note, image_number, is_photographer_uploaded, 
+    advantages, deleted_at, auto_change_date, auto_change_end_date, auto_status, created_at, 
+    updated_at, has_video, videos, video_rack_status, room_length, room_width, room_type, 
+    has_cloakroom, has_bay_window, has_window, is_wired_loft, is_wired_long_and_thin, 
+    is_bad_lighting, is_private_window, is_near_street, cleaning_tools_tag, door_tag, 
+    floor_tag, kitchen_ware_tag, is_house_state_readonly, is_price_readonly, is_room_info_readonly, 
+    is_rough_room, roof_tag, wall_floor_tag, wall_tag, window_tag, others_tear_down_tag, 
+    toilet_tag, has_private_kitchen, has_toilet_in_bathroom, toilet_type, temp_price_yuan, 
+    revalue_price_yuan, plan_id, house_id, bi_room_id, isz_house_id, isz_room_id, isz_room_no, 
+    bedroom_type, is_verify,images, documents, auto_note
+  </sql>
+
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+
+    from rooms
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from rooms
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.cube.mybatis.multids.model.Room" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into rooms (code, suite_id, room_number, 
+      customer_id, dealer_id, private_id, 
+      contract_signed_date, area, price, 
+      month_price, status, unusable_status, 
+      sold_out_status, rent_type, fire, 
+      has_error, city_name, face, 
+      available_date, rent_begin_date, rent_end_date, 
+      is_separated_room, is_abs, has_toilet, 
+      has_shower, has_balcony, has_tv, 
+      has_terrace, has_storeroom, bay_window_area, 
+      allow_quarterly, living_area, toilet_area, 
+      balcony_area, terrace_area, storeroom_area, 
+      has_image, version, style, 
+      lighting, is_small_window, has_curtains, 
+      is_rent_furniture, is_leave_furniture, is_wall_white, 
+      shape, shape_note, address_text, 
+      search_text, disable_expire_date, disable_by, 
+      disable_note, image_number, is_photographer_uploaded, 
+      advantages, deleted_at, auto_change_date, 
+      auto_change_end_date, auto_status, created_at, 
+      updated_at, has_video, videos, 
+      video_rack_status, room_length, room_width, 
+      room_type, has_cloakroom, has_bay_window, 
+      has_window, is_wired_loft, is_wired_long_and_thin, 
+      is_bad_lighting, is_private_window, is_near_street, 
+      cleaning_tools_tag, door_tag, floor_tag, 
+      kitchen_ware_tag, is_house_state_readonly, is_price_readonly, 
+      is_room_info_readonly, is_rough_room, roof_tag, 
+      wall_floor_tag, wall_tag, window_tag, 
+      others_tear_down_tag, toilet_tag, has_private_kitchen, 
+      has_toilet_in_bathroom, toilet_type, temp_price_yuan, 
+      revalue_price_yuan, plan_id, house_id, 
+      bi_room_id, isz_house_id, isz_room_id, 
+      isz_room_no, bedroom_type, is_verify, 
+      images, documents, auto_note
+      )
+    values (#{code,jdbcType=VARCHAR}, #{suiteId,jdbcType=INTEGER}, #{roomNumber,jdbcType=VARCHAR}, 
+      #{customerId,jdbcType=INTEGER}, #{dealerId,jdbcType=INTEGER}, #{privateId,jdbcType=INTEGER}, 
+      #{contractSignedDate,jdbcType=DATE}, #{area,jdbcType=SMALLINT}, #{price,jdbcType=INTEGER}, 
+      #{monthPrice,jdbcType=INTEGER}, #{status,jdbcType=CHAR}, #{unusableStatus,jdbcType=VARCHAR}, 
+      #{soldOutStatus,jdbcType=VARCHAR}, #{rentType,jdbcType=VARCHAR}, #{fire,jdbcType=CHAR}, 
+      #{hasError,jdbcType=TINYINT}, #{cityName,jdbcType=VARCHAR}, #{face,jdbcType=CHAR}, 
+      #{availableDate,jdbcType=DATE}, #{rentBeginDate,jdbcType=DATE}, #{rentEndDate,jdbcType=DATE}, 
+      #{isSeparatedRoom,jdbcType=CHAR}, #{isAbs,jdbcType=CHAR}, #{hasToilet,jdbcType=CHAR}, 
+      #{hasShower,jdbcType=CHAR}, #{hasBalcony,jdbcType=CHAR}, #{hasTv,jdbcType=CHAR}, 
+      #{hasTerrace,jdbcType=CHAR}, #{hasStoreroom,jdbcType=CHAR}, #{bayWindowArea,jdbcType=DECIMAL}, 
+      #{allowQuarterly,jdbcType=CHAR}, #{livingArea,jdbcType=DECIMAL}, #{toiletArea,jdbcType=DECIMAL}, 
+      #{balconyArea,jdbcType=DECIMAL}, #{terraceArea,jdbcType=DECIMAL}, #{storeroomArea,jdbcType=DECIMAL}, 
+      #{hasImage,jdbcType=CHAR}, #{version,jdbcType=CHAR}, #{style,jdbcType=VARCHAR}, 
+      #{lighting,jdbcType=CHAR}, #{isSmallWindow,jdbcType=CHAR}, #{hasCurtains,jdbcType=CHAR}, 
+      #{isRentFurniture,jdbcType=CHAR}, #{isLeaveFurniture,jdbcType=CHAR}, #{isWallWhite,jdbcType=CHAR}, 
+      #{shape,jdbcType=VARCHAR}, #{shapeNote,jdbcType=VARCHAR}, #{addressText,jdbcType=VARCHAR}, 
+      #{searchText,jdbcType=VARCHAR}, #{disableExpireDate,jdbcType=DATE}, #{disableBy,jdbcType=INTEGER}, 
+      #{disableNote,jdbcType=VARCHAR}, #{imageNumber,jdbcType=TINYINT}, #{isPhotographerUploaded,jdbcType=CHAR}, 
+      #{advantages,jdbcType=VARCHAR}, #{deletedAt,jdbcType=TIMESTAMP}, #{autoChangeDate,jdbcType=DATE}, 
+      #{autoChangeEndDate,jdbcType=DATE}, #{autoStatus,jdbcType=VARCHAR}, #{createdAt,jdbcType=TIMESTAMP}, 
+      #{updatedAt,jdbcType=TIMESTAMP}, #{hasVideo,jdbcType=CHAR}, #{videos,jdbcType=VARCHAR}, 
+      #{videoRackStatus,jdbcType=CHAR}, #{roomLength,jdbcType=DOUBLE}, #{roomWidth,jdbcType=DOUBLE}, 
+      #{roomType,jdbcType=VARCHAR}, #{hasCloakroom,jdbcType=VARCHAR}, #{hasBayWindow,jdbcType=VARCHAR}, 
+      #{hasWindow,jdbcType=VARCHAR}, #{isWiredLoft,jdbcType=VARCHAR}, #{isWiredLongAndThin,jdbcType=VARCHAR}, 
+      #{isBadLighting,jdbcType=VARCHAR}, #{isPrivateWindow,jdbcType=VARCHAR}, #{isNearStreet,jdbcType=VARCHAR}, 
+      #{cleaningToolsTag,jdbcType=VARCHAR}, #{doorTag,jdbcType=VARCHAR}, #{floorTag,jdbcType=VARCHAR}, 
+      #{kitchenWareTag,jdbcType=VARCHAR}, #{isHouseStateReadonly,jdbcType=VARCHAR}, #{isPriceReadonly,jdbcType=VARCHAR}, 
+      #{isRoomInfoReadonly,jdbcType=VARCHAR}, #{isRoughRoom,jdbcType=VARCHAR}, #{roofTag,jdbcType=VARCHAR}, 
+      #{wallFloorTag,jdbcType=VARCHAR}, #{wallTag,jdbcType=VARCHAR}, #{windowTag,jdbcType=VARCHAR}, 
+      #{othersTearDownTag,jdbcType=VARCHAR}, #{toiletTag,jdbcType=VARCHAR}, #{hasPrivateKitchen,jdbcType=VARCHAR}, 
+      #{hasToiletInBathroom,jdbcType=VARCHAR}, #{toiletType,jdbcType=VARCHAR}, #{tempPriceYuan,jdbcType=INTEGER}, 
+      #{revaluePriceYuan,jdbcType=INTEGER}, #{planId,jdbcType=INTEGER}, #{houseId,jdbcType=INTEGER}, 
+      #{biRoomId,jdbcType=INTEGER}, #{iszHouseId,jdbcType=VARCHAR}, #{iszRoomId,jdbcType=VARCHAR}, 
+      #{iszRoomNo,jdbcType=VARCHAR}, #{bedroomType,jdbcType=VARCHAR}, #{isVerify,jdbcType=CHAR}, 
+      #{images,jdbcType=LONGVARCHAR}, #{documents,jdbcType=LONGVARCHAR}, #{autoNote,jdbcType=LONGVARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.cube.mybatis.multids.model.Room" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into rooms
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="code != null" >
+        code,
+      </if>
+      <if test="suiteId != null" >
+        suite_id,
+      </if>
+      <if test="roomNumber != null" >
+        room_number,
+      </if>
+      <if test="customerId != null" >
+        customer_id,
+      </if>
+      <if test="dealerId != null" >
+        dealer_id,
+      </if>
+      <if test="privateId != null" >
+        private_id,
+      </if>
+      <if test="contractSignedDate != null" >
+        contract_signed_date,
+      </if>
+      <if test="area != null" >
+        area,
+      </if>
+      <if test="price != null" >
+        price,
+      </if>
+      <if test="monthPrice != null" >
+        month_price,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="unusableStatus != null" >
+        unusable_status,
+      </if>
+      <if test="soldOutStatus != null" >
+        sold_out_status,
+      </if>
+      <if test="rentType != null" >
+        rent_type,
+      </if>
+      <if test="fire != null" >
+        fire,
+      </if>
+      <if test="hasError != null" >
+        has_error,
+      </if>
+      <if test="cityName != null" >
+        city_name,
+      </if>
+      <if test="face != null" >
+        face,
+      </if>
+      <if test="availableDate != null" >
+        available_date,
+      </if>
+      <if test="rentBeginDate != null" >
+        rent_begin_date,
+      </if>
+      <if test="rentEndDate != null" >
+        rent_end_date,
+      </if>
+      <if test="isSeparatedRoom != null" >
+        is_separated_room,
+      </if>
+      <if test="isAbs != null" >
+        is_abs,
+      </if>
+      <if test="hasToilet != null" >
+        has_toilet,
+      </if>
+      <if test="hasShower != null" >
+        has_shower,
+      </if>
+      <if test="hasBalcony != null" >
+        has_balcony,
+      </if>
+      <if test="hasTv != null" >
+        has_tv,
+      </if>
+      <if test="hasTerrace != null" >
+        has_terrace,
+      </if>
+      <if test="hasStoreroom != null" >
+        has_storeroom,
+      </if>
+      <if test="bayWindowArea != null" >
+        bay_window_area,
+      </if>
+      <if test="allowQuarterly != null" >
+        allow_quarterly,
+      </if>
+      <if test="livingArea != null" >
+        living_area,
+      </if>
+      <if test="toiletArea != null" >
+        toilet_area,
+      </if>
+      <if test="balconyArea != null" >
+        balcony_area,
+      </if>
+      <if test="terraceArea != null" >
+        terrace_area,
+      </if>
+      <if test="storeroomArea != null" >
+        storeroom_area,
+      </if>
+      <if test="hasImage != null" >
+        has_image,
+      </if>
+      <if test="version != null" >
+        version,
+      </if>
+      <if test="style != null" >
+        style,
+      </if>
+      <if test="lighting != null" >
+        lighting,
+      </if>
+      <if test="isSmallWindow != null" >
+        is_small_window,
+      </if>
+      <if test="hasCurtains != null" >
+        has_curtains,
+      </if>
+      <if test="isRentFurniture != null" >
+        is_rent_furniture,
+      </if>
+      <if test="isLeaveFurniture != null" >
+        is_leave_furniture,
+      </if>
+      <if test="isWallWhite != null" >
+        is_wall_white,
+      </if>
+      <if test="shape != null" >
+        shape,
+      </if>
+      <if test="shapeNote != null" >
+        shape_note,
+      </if>
+      <if test="addressText != null" >
+        address_text,
+      </if>
+      <if test="searchText != null" >
+        search_text,
+      </if>
+      <if test="disableExpireDate != null" >
+        disable_expire_date,
+      </if>
+      <if test="disableBy != null" >
+        disable_by,
+      </if>
+      <if test="disableNote != null" >
+        disable_note,
+      </if>
+      <if test="imageNumber != null" >
+        image_number,
+      </if>
+      <if test="isPhotographerUploaded != null" >
+        is_photographer_uploaded,
+      </if>
+      <if test="advantages != null" >
+        advantages,
+      </if>
+      <if test="deletedAt != null" >
+        deleted_at,
+      </if>
+      <if test="autoChangeDate != null" >
+        auto_change_date,
+      </if>
+      <if test="autoChangeEndDate != null" >
+        auto_change_end_date,
+      </if>
+      <if test="autoStatus != null" >
+        auto_status,
+      </if>
+      <if test="createdAt != null" >
+        created_at,
+      </if>
+      <if test="updatedAt != null" >
+        updated_at,
+      </if>
+      <if test="hasVideo != null" >
+        has_video,
+      </if>
+      <if test="videos != null" >
+        videos,
+      </if>
+      <if test="videoRackStatus != null" >
+        video_rack_status,
+      </if>
+      <if test="roomLength != null" >
+        room_length,
+      </if>
+      <if test="roomWidth != null" >
+        room_width,
+      </if>
+      <if test="roomType != null" >
+        room_type,
+      </if>
+      <if test="hasCloakroom != null" >
+        has_cloakroom,
+      </if>
+      <if test="hasBayWindow != null" >
+        has_bay_window,
+      </if>
+      <if test="hasWindow != null" >
+        has_window,
+      </if>
+      <if test="isWiredLoft != null" >
+        is_wired_loft,
+      </if>
+      <if test="isWiredLongAndThin != null" >
+        is_wired_long_and_thin,
+      </if>
+      <if test="isBadLighting != null" >
+        is_bad_lighting,
+      </if>
+      <if test="isPrivateWindow != null" >
+        is_private_window,
+      </if>
+      <if test="isNearStreet != null" >
+        is_near_street,
+      </if>
+      <if test="cleaningToolsTag != null" >
+        cleaning_tools_tag,
+      </if>
+      <if test="doorTag != null" >
+        door_tag,
+      </if>
+      <if test="floorTag != null" >
+        floor_tag,
+      </if>
+      <if test="kitchenWareTag != null" >
+        kitchen_ware_tag,
+      </if>
+      <if test="isHouseStateReadonly != null" >
+        is_house_state_readonly,
+      </if>
+      <if test="isPriceReadonly != null" >
+        is_price_readonly,
+      </if>
+      <if test="isRoomInfoReadonly != null" >
+        is_room_info_readonly,
+      </if>
+      <if test="isRoughRoom != null" >
+        is_rough_room,
+      </if>
+      <if test="roofTag != null" >
+        roof_tag,
+      </if>
+      <if test="wallFloorTag != null" >
+        wall_floor_tag,
+      </if>
+      <if test="wallTag != null" >
+        wall_tag,
+      </if>
+      <if test="windowTag != null" >
+        window_tag,
+      </if>
+      <if test="othersTearDownTag != null" >
+        others_tear_down_tag,
+      </if>
+      <if test="toiletTag != null" >
+        toilet_tag,
+      </if>
+      <if test="hasPrivateKitchen != null" >
+        has_private_kitchen,
+      </if>
+      <if test="hasToiletInBathroom != null" >
+        has_toilet_in_bathroom,
+      </if>
+      <if test="toiletType != null" >
+        toilet_type,
+      </if>
+      <if test="tempPriceYuan != null" >
+        temp_price_yuan,
+      </if>
+      <if test="revaluePriceYuan != null" >
+        revalue_price_yuan,
+      </if>
+      <if test="planId != null" >
+        plan_id,
+      </if>
+      <if test="houseId != null" >
+        house_id,
+      </if>
+      <if test="biRoomId != null" >
+        bi_room_id,
+      </if>
+      <if test="iszHouseId != null" >
+        isz_house_id,
+      </if>
+      <if test="iszRoomId != null" >
+        isz_room_id,
+      </if>
+      <if test="iszRoomNo != null" >
+        isz_room_no,
+      </if>
+      <if test="bedroomType != null" >
+        bedroom_type,
+      </if>
+      <if test="isVerify != null" >
+        is_verify,
+      </if>
+      <if test="images != null" >
+        images,
+      </if>
+      <if test="documents != null" >
+        documents,
+      </if>
+      <if test="autoNote != null" >
+        auto_note,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="code != null" >
+        #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="suiteId != null" >
+        #{suiteId,jdbcType=INTEGER},
+      </if>
+      <if test="roomNumber != null" >
+        #{roomNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="customerId != null" >
+        #{customerId,jdbcType=INTEGER},
+      </if>
+      <if test="dealerId != null" >
+        #{dealerId,jdbcType=INTEGER},
+      </if>
+      <if test="privateId != null" >
+        #{privateId,jdbcType=INTEGER},
+      </if>
+      <if test="contractSignedDate != null" >
+        #{contractSignedDate,jdbcType=DATE},
+      </if>
+      <if test="area != null" >
+        #{area,jdbcType=SMALLINT},
+      </if>
+      <if test="price != null" >
+        #{price,jdbcType=INTEGER},
+      </if>
+      <if test="monthPrice != null" >
+        #{monthPrice,jdbcType=INTEGER},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=CHAR},
+      </if>
+      <if test="unusableStatus != null" >
+        #{unusableStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="soldOutStatus != null" >
+        #{soldOutStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="rentType != null" >
+        #{rentType,jdbcType=VARCHAR},
+      </if>
+      <if test="fire != null" >
+        #{fire,jdbcType=CHAR},
+      </if>
+      <if test="hasError != null" >
+        #{hasError,jdbcType=TINYINT},
+      </if>
+      <if test="cityName != null" >
+        #{cityName,jdbcType=VARCHAR},
+      </if>
+      <if test="face != null" >
+        #{face,jdbcType=CHAR},
+      </if>
+      <if test="availableDate != null" >
+        #{availableDate,jdbcType=DATE},
+      </if>
+      <if test="rentBeginDate != null" >
+        #{rentBeginDate,jdbcType=DATE},
+      </if>
+      <if test="rentEndDate != null" >
+        #{rentEndDate,jdbcType=DATE},
+      </if>
+      <if test="isSeparatedRoom != null" >
+        #{isSeparatedRoom,jdbcType=CHAR},
+      </if>
+      <if test="isAbs != null" >
+        #{isAbs,jdbcType=CHAR},
+      </if>
+      <if test="hasToilet != null" >
+        #{hasToilet,jdbcType=CHAR},
+      </if>
+      <if test="hasShower != null" >
+        #{hasShower,jdbcType=CHAR},
+      </if>
+      <if test="hasBalcony != null" >
+        #{hasBalcony,jdbcType=CHAR},
+      </if>
+      <if test="hasTv != null" >
+        #{hasTv,jdbcType=CHAR},
+      </if>
+      <if test="hasTerrace != null" >
+        #{hasTerrace,jdbcType=CHAR},
+      </if>
+      <if test="hasStoreroom != null" >
+        #{hasStoreroom,jdbcType=CHAR},
+      </if>
+      <if test="bayWindowArea != null" >
+        #{bayWindowArea,jdbcType=DECIMAL},
+      </if>
+      <if test="allowQuarterly != null" >
+        #{allowQuarterly,jdbcType=CHAR},
+      </if>
+      <if test="livingArea != null" >
+        #{livingArea,jdbcType=DECIMAL},
+      </if>
+      <if test="toiletArea != null" >
+        #{toiletArea,jdbcType=DECIMAL},
+      </if>
+      <if test="balconyArea != null" >
+        #{balconyArea,jdbcType=DECIMAL},
+      </if>
+      <if test="terraceArea != null" >
+        #{terraceArea,jdbcType=DECIMAL},
+      </if>
+      <if test="storeroomArea != null" >
+        #{storeroomArea,jdbcType=DECIMAL},
+      </if>
+      <if test="hasImage != null" >
+        #{hasImage,jdbcType=CHAR},
+      </if>
+      <if test="version != null" >
+        #{version,jdbcType=CHAR},
+      </if>
+      <if test="style != null" >
+        #{style,jdbcType=VARCHAR},
+      </if>
+      <if test="lighting != null" >
+        #{lighting,jdbcType=CHAR},
+      </if>
+      <if test="isSmallWindow != null" >
+        #{isSmallWindow,jdbcType=CHAR},
+      </if>
+      <if test="hasCurtains != null" >
+        #{hasCurtains,jdbcType=CHAR},
+      </if>
+      <if test="isRentFurniture != null" >
+        #{isRentFurniture,jdbcType=CHAR},
+      </if>
+      <if test="isLeaveFurniture != null" >
+        #{isLeaveFurniture,jdbcType=CHAR},
+      </if>
+      <if test="isWallWhite != null" >
+        #{isWallWhite,jdbcType=CHAR},
+      </if>
+      <if test="shape != null" >
+        #{shape,jdbcType=VARCHAR},
+      </if>
+      <if test="shapeNote != null" >
+        #{shapeNote,jdbcType=VARCHAR},
+      </if>
+      <if test="addressText != null" >
+        #{addressText,jdbcType=VARCHAR},
+      </if>
+      <if test="searchText != null" >
+        #{searchText,jdbcType=VARCHAR},
+      </if>
+      <if test="disableExpireDate != null" >
+        #{disableExpireDate,jdbcType=DATE},
+      </if>
+      <if test="disableBy != null" >
+        #{disableBy,jdbcType=INTEGER},
+      </if>
+      <if test="disableNote != null" >
+        #{disableNote,jdbcType=VARCHAR},
+      </if>
+      <if test="imageNumber != null" >
+        #{imageNumber,jdbcType=TINYINT},
+      </if>
+      <if test="isPhotographerUploaded != null" >
+        #{isPhotographerUploaded,jdbcType=CHAR},
+      </if>
+      <if test="advantages != null" >
+        #{advantages,jdbcType=VARCHAR},
+      </if>
+      <if test="deletedAt != null" >
+        #{deletedAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="autoChangeDate != null" >
+        #{autoChangeDate,jdbcType=DATE},
+      </if>
+      <if test="autoChangeEndDate != null" >
+        #{autoChangeEndDate,jdbcType=DATE},
+      </if>
+      <if test="autoStatus != null" >
+        #{autoStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="createdAt != null" >
+        #{createdAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedAt != null" >
+        #{updatedAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="hasVideo != null" >
+        #{hasVideo,jdbcType=CHAR},
+      </if>
+      <if test="videos != null" >
+        #{videos,jdbcType=VARCHAR},
+      </if>
+      <if test="videoRackStatus != null" >
+        #{videoRackStatus,jdbcType=CHAR},
+      </if>
+      <if test="roomLength != null" >
+        #{roomLength,jdbcType=DOUBLE},
+      </if>
+      <if test="roomWidth != null" >
+        #{roomWidth,jdbcType=DOUBLE},
+      </if>
+      <if test="roomType != null" >
+        #{roomType,jdbcType=VARCHAR},
+      </if>
+      <if test="hasCloakroom != null" >
+        #{hasCloakroom,jdbcType=VARCHAR},
+      </if>
+      <if test="hasBayWindow != null" >
+        #{hasBayWindow,jdbcType=VARCHAR},
+      </if>
+      <if test="hasWindow != null" >
+        #{hasWindow,jdbcType=VARCHAR},
+      </if>
+      <if test="isWiredLoft != null" >
+        #{isWiredLoft,jdbcType=VARCHAR},
+      </if>
+      <if test="isWiredLongAndThin != null" >
+        #{isWiredLongAndThin,jdbcType=VARCHAR},
+      </if>
+      <if test="isBadLighting != null" >
+        #{isBadLighting,jdbcType=VARCHAR},
+      </if>
+      <if test="isPrivateWindow != null" >
+        #{isPrivateWindow,jdbcType=VARCHAR},
+      </if>
+      <if test="isNearStreet != null" >
+        #{isNearStreet,jdbcType=VARCHAR},
+      </if>
+      <if test="cleaningToolsTag != null" >
+        #{cleaningToolsTag,jdbcType=VARCHAR},
+      </if>
+      <if test="doorTag != null" >
+        #{doorTag,jdbcType=VARCHAR},
+      </if>
+      <if test="floorTag != null" >
+        #{floorTag,jdbcType=VARCHAR},
+      </if>
+      <if test="kitchenWareTag != null" >
+        #{kitchenWareTag,jdbcType=VARCHAR},
+      </if>
+      <if test="isHouseStateReadonly != null" >
+        #{isHouseStateReadonly,jdbcType=VARCHAR},
+      </if>
+      <if test="isPriceReadonly != null" >
+        #{isPriceReadonly,jdbcType=VARCHAR},
+      </if>
+      <if test="isRoomInfoReadonly != null" >
+        #{isRoomInfoReadonly,jdbcType=VARCHAR},
+      </if>
+      <if test="isRoughRoom != null" >
+        #{isRoughRoom,jdbcType=VARCHAR},
+      </if>
+      <if test="roofTag != null" >
+        #{roofTag,jdbcType=VARCHAR},
+      </if>
+      <if test="wallFloorTag != null" >
+        #{wallFloorTag,jdbcType=VARCHAR},
+      </if>
+      <if test="wallTag != null" >
+        #{wallTag,jdbcType=VARCHAR},
+      </if>
+      <if test="windowTag != null" >
+        #{windowTag,jdbcType=VARCHAR},
+      </if>
+      <if test="othersTearDownTag != null" >
+        #{othersTearDownTag,jdbcType=VARCHAR},
+      </if>
+      <if test="toiletTag != null" >
+        #{toiletTag,jdbcType=VARCHAR},
+      </if>
+      <if test="hasPrivateKitchen != null" >
+        #{hasPrivateKitchen,jdbcType=VARCHAR},
+      </if>
+      <if test="hasToiletInBathroom != null" >
+        #{hasToiletInBathroom,jdbcType=VARCHAR},
+      </if>
+      <if test="toiletType != null" >
+        #{toiletType,jdbcType=VARCHAR},
+      </if>
+      <if test="tempPriceYuan != null" >
+        #{tempPriceYuan,jdbcType=INTEGER},
+      </if>
+      <if test="revaluePriceYuan != null" >
+        #{revaluePriceYuan,jdbcType=INTEGER},
+      </if>
+      <if test="planId != null" >
+        #{planId,jdbcType=INTEGER},
+      </if>
+      <if test="houseId != null" >
+        #{houseId,jdbcType=INTEGER},
+      </if>
+      <if test="biRoomId != null" >
+        #{biRoomId,jdbcType=INTEGER},
+      </if>
+      <if test="iszHouseId != null" >
+        #{iszHouseId,jdbcType=VARCHAR},
+      </if>
+      <if test="iszRoomId != null" >
+        #{iszRoomId,jdbcType=VARCHAR},
+      </if>
+      <if test="iszRoomNo != null" >
+        #{iszRoomNo,jdbcType=VARCHAR},
+      </if>
+      <if test="bedroomType != null" >
+        #{bedroomType,jdbcType=VARCHAR},
+      </if>
+      <if test="isVerify != null" >
+        #{isVerify,jdbcType=CHAR},
+      </if>
+      <if test="images != null" >
+        #{images,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="documents != null" >
+        #{documents,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="autoNote != null" >
+        #{autoNote,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.cube.mybatis.multids.model.Room" >
+    update rooms
+    <set >
+      <if test="code != null" >
+        code = #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="suiteId != null" >
+        suite_id = #{suiteId,jdbcType=INTEGER},
+      </if>
+      <if test="roomNumber != null" >
+        room_number = #{roomNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="customerId != null" >
+        customer_id = #{customerId,jdbcType=INTEGER},
+      </if>
+      <if test="dealerId != null" >
+        dealer_id = #{dealerId,jdbcType=INTEGER},
+      </if>
+      <if test="privateId != null" >
+        private_id = #{privateId,jdbcType=INTEGER},
+      </if>
+      <if test="contractSignedDate != null" >
+        contract_signed_date = #{contractSignedDate,jdbcType=DATE},
+      </if>
+      <if test="area != null" >
+        area = #{area,jdbcType=SMALLINT},
+      </if>
+      <if test="price != null" >
+        price = #{price,jdbcType=INTEGER},
+      </if>
+      <if test="monthPrice != null" >
+        month_price = #{monthPrice,jdbcType=INTEGER},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=CHAR},
+      </if>
+      <if test="unusableStatus != null" >
+        unusable_status = #{unusableStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="soldOutStatus != null" >
+        sold_out_status = #{soldOutStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="rentType != null" >
+        rent_type = #{rentType,jdbcType=VARCHAR},
+      </if>
+      <if test="fire != null" >
+        fire = #{fire,jdbcType=CHAR},
+      </if>
+      <if test="hasError != null" >
+        has_error = #{hasError,jdbcType=TINYINT},
+      </if>
+      <if test="cityName != null" >
+        city_name = #{cityName,jdbcType=VARCHAR},
+      </if>
+      <if test="face != null" >
+        face = #{face,jdbcType=CHAR},
+      </if>
+      <if test="availableDate != null" >
+        available_date = #{availableDate,jdbcType=DATE},
+      </if>
+      <if test="rentBeginDate != null" >
+        rent_begin_date = #{rentBeginDate,jdbcType=DATE},
+      </if>
+      <if test="rentEndDate != null" >
+        rent_end_date = #{rentEndDate,jdbcType=DATE},
+      </if>
+      <if test="isSeparatedRoom != null" >
+        is_separated_room = #{isSeparatedRoom,jdbcType=CHAR},
+      </if>
+      <if test="isAbs != null" >
+        is_abs = #{isAbs,jdbcType=CHAR},
+      </if>
+      <if test="hasToilet != null" >
+        has_toilet = #{hasToilet,jdbcType=CHAR},
+      </if>
+      <if test="hasShower != null" >
+        has_shower = #{hasShower,jdbcType=CHAR},
+      </if>
+      <if test="hasBalcony != null" >
+        has_balcony = #{hasBalcony,jdbcType=CHAR},
+      </if>
+      <if test="hasTv != null" >
+        has_tv = #{hasTv,jdbcType=CHAR},
+      </if>
+      <if test="hasTerrace != null" >
+        has_terrace = #{hasTerrace,jdbcType=CHAR},
+      </if>
+      <if test="hasStoreroom != null" >
+        has_storeroom = #{hasStoreroom,jdbcType=CHAR},
+      </if>
+      <if test="bayWindowArea != null" >
+        bay_window_area = #{bayWindowArea,jdbcType=DECIMAL},
+      </if>
+      <if test="allowQuarterly != null" >
+        allow_quarterly = #{allowQuarterly,jdbcType=CHAR},
+      </if>
+      <if test="livingArea != null" >
+        living_area = #{livingArea,jdbcType=DECIMAL},
+      </if>
+      <if test="toiletArea != null" >
+        toilet_area = #{toiletArea,jdbcType=DECIMAL},
+      </if>
+      <if test="balconyArea != null" >
+        balcony_area = #{balconyArea,jdbcType=DECIMAL},
+      </if>
+      <if test="terraceArea != null" >
+        terrace_area = #{terraceArea,jdbcType=DECIMAL},
+      </if>
+      <if test="storeroomArea != null" >
+        storeroom_area = #{storeroomArea,jdbcType=DECIMAL},
+      </if>
+      <if test="hasImage != null" >
+        has_image = #{hasImage,jdbcType=CHAR},
+      </if>
+      <if test="version != null" >
+        version = #{version,jdbcType=CHAR},
+      </if>
+      <if test="style != null" >
+        style = #{style,jdbcType=VARCHAR},
+      </if>
+      <if test="lighting != null" >
+        lighting = #{lighting,jdbcType=CHAR},
+      </if>
+      <if test="isSmallWindow != null" >
+        is_small_window = #{isSmallWindow,jdbcType=CHAR},
+      </if>
+      <if test="hasCurtains != null" >
+        has_curtains = #{hasCurtains,jdbcType=CHAR},
+      </if>
+      <if test="isRentFurniture != null" >
+        is_rent_furniture = #{isRentFurniture,jdbcType=CHAR},
+      </if>
+      <if test="isLeaveFurniture != null" >
+        is_leave_furniture = #{isLeaveFurniture,jdbcType=CHAR},
+      </if>
+      <if test="isWallWhite != null" >
+        is_wall_white = #{isWallWhite,jdbcType=CHAR},
+      </if>
+      <if test="shape != null" >
+        shape = #{shape,jdbcType=VARCHAR},
+      </if>
+      <if test="shapeNote != null" >
+        shape_note = #{shapeNote,jdbcType=VARCHAR},
+      </if>
+      <if test="addressText != null" >
+        address_text = #{addressText,jdbcType=VARCHAR},
+      </if>
+      <if test="searchText != null" >
+        search_text = #{searchText,jdbcType=VARCHAR},
+      </if>
+      <if test="disableExpireDate != null" >
+        disable_expire_date = #{disableExpireDate,jdbcType=DATE},
+      </if>
+      <if test="disableBy != null" >
+        disable_by = #{disableBy,jdbcType=INTEGER},
+      </if>
+      <if test="disableNote != null" >
+        disable_note = #{disableNote,jdbcType=VARCHAR},
+      </if>
+      <if test="imageNumber != null" >
+        image_number = #{imageNumber,jdbcType=TINYINT},
+      </if>
+      <if test="isPhotographerUploaded != null" >
+        is_photographer_uploaded = #{isPhotographerUploaded,jdbcType=CHAR},
+      </if>
+      <if test="advantages != null" >
+        advantages = #{advantages,jdbcType=VARCHAR},
+      </if>
+      <if test="deletedAt != null" >
+        deleted_at = #{deletedAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="autoChangeDate != null" >
+        auto_change_date = #{autoChangeDate,jdbcType=DATE},
+      </if>
+      <if test="autoChangeEndDate != null" >
+        auto_change_end_date = #{autoChangeEndDate,jdbcType=DATE},
+      </if>
+      <if test="autoStatus != null" >
+        auto_status = #{autoStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="createdAt != null" >
+        created_at = #{createdAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedAt != null" >
+        updated_at = #{updatedAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="hasVideo != null" >
+        has_video = #{hasVideo,jdbcType=CHAR},
+      </if>
+      <if test="videos != null" >
+        videos = #{videos,jdbcType=VARCHAR},
+      </if>
+      <if test="videoRackStatus != null" >
+        video_rack_status = #{videoRackStatus,jdbcType=CHAR},
+      </if>
+      <if test="roomLength != null" >
+        room_length = #{roomLength,jdbcType=DOUBLE},
+      </if>
+      <if test="roomWidth != null" >
+        room_width = #{roomWidth,jdbcType=DOUBLE},
+      </if>
+      <if test="roomType != null" >
+        room_type = #{roomType,jdbcType=VARCHAR},
+      </if>
+      <if test="hasCloakroom != null" >
+        has_cloakroom = #{hasCloakroom,jdbcType=VARCHAR},
+      </if>
+      <if test="hasBayWindow != null" >
+        has_bay_window = #{hasBayWindow,jdbcType=VARCHAR},
+      </if>
+      <if test="hasWindow != null" >
+        has_window = #{hasWindow,jdbcType=VARCHAR},
+      </if>
+      <if test="isWiredLoft != null" >
+        is_wired_loft = #{isWiredLoft,jdbcType=VARCHAR},
+      </if>
+      <if test="isWiredLongAndThin != null" >
+        is_wired_long_and_thin = #{isWiredLongAndThin,jdbcType=VARCHAR},
+      </if>
+      <if test="isBadLighting != null" >
+        is_bad_lighting = #{isBadLighting,jdbcType=VARCHAR},
+      </if>
+      <if test="isPrivateWindow != null" >
+        is_private_window = #{isPrivateWindow,jdbcType=VARCHAR},
+      </if>
+      <if test="isNearStreet != null" >
+        is_near_street = #{isNearStreet,jdbcType=VARCHAR},
+      </if>
+      <if test="cleaningToolsTag != null" >
+        cleaning_tools_tag = #{cleaningToolsTag,jdbcType=VARCHAR},
+      </if>
+      <if test="doorTag != null" >
+        door_tag = #{doorTag,jdbcType=VARCHAR},
+      </if>
+      <if test="floorTag != null" >
+        floor_tag = #{floorTag,jdbcType=VARCHAR},
+      </if>
+      <if test="kitchenWareTag != null" >
+        kitchen_ware_tag = #{kitchenWareTag,jdbcType=VARCHAR},
+      </if>
+      <if test="isHouseStateReadonly != null" >
+        is_house_state_readonly = #{isHouseStateReadonly,jdbcType=VARCHAR},
+      </if>
+      <if test="isPriceReadonly != null" >
+        is_price_readonly = #{isPriceReadonly,jdbcType=VARCHAR},
+      </if>
+      <if test="isRoomInfoReadonly != null" >
+        is_room_info_readonly = #{isRoomInfoReadonly,jdbcType=VARCHAR},
+      </if>
+      <if test="isRoughRoom != null" >
+        is_rough_room = #{isRoughRoom,jdbcType=VARCHAR},
+      </if>
+      <if test="roofTag != null" >
+        roof_tag = #{roofTag,jdbcType=VARCHAR},
+      </if>
+      <if test="wallFloorTag != null" >
+        wall_floor_tag = #{wallFloorTag,jdbcType=VARCHAR},
+      </if>
+      <if test="wallTag != null" >
+        wall_tag = #{wallTag,jdbcType=VARCHAR},
+      </if>
+      <if test="windowTag != null" >
+        window_tag = #{windowTag,jdbcType=VARCHAR},
+      </if>
+      <if test="othersTearDownTag != null" >
+        others_tear_down_tag = #{othersTearDownTag,jdbcType=VARCHAR},
+      </if>
+      <if test="toiletTag != null" >
+        toilet_tag = #{toiletTag,jdbcType=VARCHAR},
+      </if>
+      <if test="hasPrivateKitchen != null" >
+        has_private_kitchen = #{hasPrivateKitchen,jdbcType=VARCHAR},
+      </if>
+      <if test="hasToiletInBathroom != null" >
+        has_toilet_in_bathroom = #{hasToiletInBathroom,jdbcType=VARCHAR},
+      </if>
+      <if test="toiletType != null" >
+        toilet_type = #{toiletType,jdbcType=VARCHAR},
+      </if>
+      <if test="tempPriceYuan != null" >
+        temp_price_yuan = #{tempPriceYuan,jdbcType=INTEGER},
+      </if>
+      <if test="revaluePriceYuan != null" >
+        revalue_price_yuan = #{revaluePriceYuan,jdbcType=INTEGER},
+      </if>
+      <if test="planId != null" >
+        plan_id = #{planId,jdbcType=INTEGER},
+      </if>
+      <if test="houseId != null" >
+        house_id = #{houseId,jdbcType=INTEGER},
+      </if>
+      <if test="biRoomId != null" >
+        bi_room_id = #{biRoomId,jdbcType=INTEGER},
+      </if>
+      <if test="iszHouseId != null" >
+        isz_house_id = #{iszHouseId,jdbcType=VARCHAR},
+      </if>
+      <if test="iszRoomId != null" >
+        isz_room_id = #{iszRoomId,jdbcType=VARCHAR},
+      </if>
+      <if test="iszRoomNo != null" >
+        isz_room_no = #{iszRoomNo,jdbcType=VARCHAR},
+      </if>
+      <if test="bedroomType != null" >
+        bedroom_type = #{bedroomType,jdbcType=VARCHAR},
+      </if>
+      <if test="isVerify != null" >
+        is_verify = #{isVerify,jdbcType=CHAR},
+      </if>
+      <if test="images != null" >
+        images = #{images,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="documents != null" >
+        documents = #{documents,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="autoNote != null" >
+        auto_note = #{autoNote,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.cube.mybatis.multids.model.Room" >
+    update rooms
+    set code = #{code,jdbcType=VARCHAR},
+      suite_id = #{suiteId,jdbcType=INTEGER},
+      room_number = #{roomNumber,jdbcType=VARCHAR},
+      customer_id = #{customerId,jdbcType=INTEGER},
+      dealer_id = #{dealerId,jdbcType=INTEGER},
+      private_id = #{privateId,jdbcType=INTEGER},
+      contract_signed_date = #{contractSignedDate,jdbcType=DATE},
+      area = #{area,jdbcType=SMALLINT},
+      price = #{price,jdbcType=INTEGER},
+      month_price = #{monthPrice,jdbcType=INTEGER},
+      status = #{status,jdbcType=CHAR},
+      unusable_status = #{unusableStatus,jdbcType=VARCHAR},
+      sold_out_status = #{soldOutStatus,jdbcType=VARCHAR},
+      rent_type = #{rentType,jdbcType=VARCHAR},
+      fire = #{fire,jdbcType=CHAR},
+      has_error = #{hasError,jdbcType=TINYINT},
+      city_name = #{cityName,jdbcType=VARCHAR},
+      face = #{face,jdbcType=CHAR},
+      available_date = #{availableDate,jdbcType=DATE},
+      rent_begin_date = #{rentBeginDate,jdbcType=DATE},
+      rent_end_date = #{rentEndDate,jdbcType=DATE},
+      is_separated_room = #{isSeparatedRoom,jdbcType=CHAR},
+      is_abs = #{isAbs,jdbcType=CHAR},
+      has_toilet = #{hasToilet,jdbcType=CHAR},
+      has_shower = #{hasShower,jdbcType=CHAR},
+      has_balcony = #{hasBalcony,jdbcType=CHAR},
+      has_tv = #{hasTv,jdbcType=CHAR},
+      has_terrace = #{hasTerrace,jdbcType=CHAR},
+      has_storeroom = #{hasStoreroom,jdbcType=CHAR},
+      bay_window_area = #{bayWindowArea,jdbcType=DECIMAL},
+      allow_quarterly = #{allowQuarterly,jdbcType=CHAR},
+      living_area = #{livingArea,jdbcType=DECIMAL},
+      toilet_area = #{toiletArea,jdbcType=DECIMAL},
+      balcony_area = #{balconyArea,jdbcType=DECIMAL},
+      terrace_area = #{terraceArea,jdbcType=DECIMAL},
+      storeroom_area = #{storeroomArea,jdbcType=DECIMAL},
+      has_image = #{hasImage,jdbcType=CHAR},
+      version = #{version,jdbcType=CHAR},
+      style = #{style,jdbcType=VARCHAR},
+      lighting = #{lighting,jdbcType=CHAR},
+      is_small_window = #{isSmallWindow,jdbcType=CHAR},
+      has_curtains = #{hasCurtains,jdbcType=CHAR},
+      is_rent_furniture = #{isRentFurniture,jdbcType=CHAR},
+      is_leave_furniture = #{isLeaveFurniture,jdbcType=CHAR},
+      is_wall_white = #{isWallWhite,jdbcType=CHAR},
+      shape = #{shape,jdbcType=VARCHAR},
+      shape_note = #{shapeNote,jdbcType=VARCHAR},
+      address_text = #{addressText,jdbcType=VARCHAR},
+      search_text = #{searchText,jdbcType=VARCHAR},
+      disable_expire_date = #{disableExpireDate,jdbcType=DATE},
+      disable_by = #{disableBy,jdbcType=INTEGER},
+      disable_note = #{disableNote,jdbcType=VARCHAR},
+      image_number = #{imageNumber,jdbcType=TINYINT},
+      is_photographer_uploaded = #{isPhotographerUploaded,jdbcType=CHAR},
+      advantages = #{advantages,jdbcType=VARCHAR},
+      deleted_at = #{deletedAt,jdbcType=TIMESTAMP},
+      auto_change_date = #{autoChangeDate,jdbcType=DATE},
+      auto_change_end_date = #{autoChangeEndDate,jdbcType=DATE},
+      auto_status = #{autoStatus,jdbcType=VARCHAR},
+      created_at = #{createdAt,jdbcType=TIMESTAMP},
+      updated_at = #{updatedAt,jdbcType=TIMESTAMP},
+      has_video = #{hasVideo,jdbcType=CHAR},
+      videos = #{videos,jdbcType=VARCHAR},
+      video_rack_status = #{videoRackStatus,jdbcType=CHAR},
+      room_length = #{roomLength,jdbcType=DOUBLE},
+      room_width = #{roomWidth,jdbcType=DOUBLE},
+      room_type = #{roomType,jdbcType=VARCHAR},
+      has_cloakroom = #{hasCloakroom,jdbcType=VARCHAR},
+      has_bay_window = #{hasBayWindow,jdbcType=VARCHAR},
+      has_window = #{hasWindow,jdbcType=VARCHAR},
+      is_wired_loft = #{isWiredLoft,jdbcType=VARCHAR},
+      is_wired_long_and_thin = #{isWiredLongAndThin,jdbcType=VARCHAR},
+      is_bad_lighting = #{isBadLighting,jdbcType=VARCHAR},
+      is_private_window = #{isPrivateWindow,jdbcType=VARCHAR},
+      is_near_street = #{isNearStreet,jdbcType=VARCHAR},
+      cleaning_tools_tag = #{cleaningToolsTag,jdbcType=VARCHAR},
+      door_tag = #{doorTag,jdbcType=VARCHAR},
+      floor_tag = #{floorTag,jdbcType=VARCHAR},
+      kitchen_ware_tag = #{kitchenWareTag,jdbcType=VARCHAR},
+      is_house_state_readonly = #{isHouseStateReadonly,jdbcType=VARCHAR},
+      is_price_readonly = #{isPriceReadonly,jdbcType=VARCHAR},
+      is_room_info_readonly = #{isRoomInfoReadonly,jdbcType=VARCHAR},
+      is_rough_room = #{isRoughRoom,jdbcType=VARCHAR},
+      roof_tag = #{roofTag,jdbcType=VARCHAR},
+      wall_floor_tag = #{wallFloorTag,jdbcType=VARCHAR},
+      wall_tag = #{wallTag,jdbcType=VARCHAR},
+      window_tag = #{windowTag,jdbcType=VARCHAR},
+      others_tear_down_tag = #{othersTearDownTag,jdbcType=VARCHAR},
+      toilet_tag = #{toiletTag,jdbcType=VARCHAR},
+      has_private_kitchen = #{hasPrivateKitchen,jdbcType=VARCHAR},
+      has_toilet_in_bathroom = #{hasToiletInBathroom,jdbcType=VARCHAR},
+      toilet_type = #{toiletType,jdbcType=VARCHAR},
+      temp_price_yuan = #{tempPriceYuan,jdbcType=INTEGER},
+      revalue_price_yuan = #{revaluePriceYuan,jdbcType=INTEGER},
+      plan_id = #{planId,jdbcType=INTEGER},
+      house_id = #{houseId,jdbcType=INTEGER},
+      bi_room_id = #{biRoomId,jdbcType=INTEGER},
+      isz_house_id = #{iszHouseId,jdbcType=VARCHAR},
+      isz_room_id = #{iszRoomId,jdbcType=VARCHAR},
+      isz_room_no = #{iszRoomNo,jdbcType=VARCHAR},
+      bedroom_type = #{bedroomType,jdbcType=VARCHAR},
+      is_verify = #{isVerify,jdbcType=CHAR},
+      images = #{images,jdbcType=LONGVARCHAR},
+      documents = #{documents,jdbcType=LONGVARCHAR},
+      auto_note = #{autoNote,jdbcType=LONGVARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.cube.mybatis.multids.model.Room" >
+    update rooms
+    set code = #{code,jdbcType=VARCHAR},
+      suite_id = #{suiteId,jdbcType=INTEGER},
+      room_number = #{roomNumber,jdbcType=VARCHAR},
+      customer_id = #{customerId,jdbcType=INTEGER},
+      dealer_id = #{dealerId,jdbcType=INTEGER},
+      private_id = #{privateId,jdbcType=INTEGER},
+      contract_signed_date = #{contractSignedDate,jdbcType=DATE},
+      area = #{area,jdbcType=SMALLINT},
+      price = #{price,jdbcType=INTEGER},
+      month_price = #{monthPrice,jdbcType=INTEGER},
+      status = #{status,jdbcType=CHAR},
+      unusable_status = #{unusableStatus,jdbcType=VARCHAR},
+      sold_out_status = #{soldOutStatus,jdbcType=VARCHAR},
+      rent_type = #{rentType,jdbcType=VARCHAR},
+      fire = #{fire,jdbcType=CHAR},
+      has_error = #{hasError,jdbcType=TINYINT},
+      city_name = #{cityName,jdbcType=VARCHAR},
+      face = #{face,jdbcType=CHAR},
+      available_date = #{availableDate,jdbcType=DATE},
+      rent_begin_date = #{rentBeginDate,jdbcType=DATE},
+      rent_end_date = #{rentEndDate,jdbcType=DATE},
+      is_separated_room = #{isSeparatedRoom,jdbcType=CHAR},
+      is_abs = #{isAbs,jdbcType=CHAR},
+      has_toilet = #{hasToilet,jdbcType=CHAR},
+      has_shower = #{hasShower,jdbcType=CHAR},
+      has_balcony = #{hasBalcony,jdbcType=CHAR},
+      has_tv = #{hasTv,jdbcType=CHAR},
+      has_terrace = #{hasTerrace,jdbcType=CHAR},
+      has_storeroom = #{hasStoreroom,jdbcType=CHAR},
+      bay_window_area = #{bayWindowArea,jdbcType=DECIMAL},
+      allow_quarterly = #{allowQuarterly,jdbcType=CHAR},
+      living_area = #{livingArea,jdbcType=DECIMAL},
+      toilet_area = #{toiletArea,jdbcType=DECIMAL},
+      balcony_area = #{balconyArea,jdbcType=DECIMAL},
+      terrace_area = #{terraceArea,jdbcType=DECIMAL},
+      storeroom_area = #{storeroomArea,jdbcType=DECIMAL},
+      has_image = #{hasImage,jdbcType=CHAR},
+      version = #{version,jdbcType=CHAR},
+      style = #{style,jdbcType=VARCHAR},
+      lighting = #{lighting,jdbcType=CHAR},
+      is_small_window = #{isSmallWindow,jdbcType=CHAR},
+      has_curtains = #{hasCurtains,jdbcType=CHAR},
+      is_rent_furniture = #{isRentFurniture,jdbcType=CHAR},
+      is_leave_furniture = #{isLeaveFurniture,jdbcType=CHAR},
+      is_wall_white = #{isWallWhite,jdbcType=CHAR},
+      shape = #{shape,jdbcType=VARCHAR},
+      shape_note = #{shapeNote,jdbcType=VARCHAR},
+      address_text = #{addressText,jdbcType=VARCHAR},
+      search_text = #{searchText,jdbcType=VARCHAR},
+      disable_expire_date = #{disableExpireDate,jdbcType=DATE},
+      disable_by = #{disableBy,jdbcType=INTEGER},
+      disable_note = #{disableNote,jdbcType=VARCHAR},
+      image_number = #{imageNumber,jdbcType=TINYINT},
+      is_photographer_uploaded = #{isPhotographerUploaded,jdbcType=CHAR},
+      advantages = #{advantages,jdbcType=VARCHAR},
+      deleted_at = #{deletedAt,jdbcType=TIMESTAMP},
+      auto_change_date = #{autoChangeDate,jdbcType=DATE},
+      auto_change_end_date = #{autoChangeEndDate,jdbcType=DATE},
+      auto_status = #{autoStatus,jdbcType=VARCHAR},
+      created_at = #{createdAt,jdbcType=TIMESTAMP},
+      updated_at = #{updatedAt,jdbcType=TIMESTAMP},
+      has_video = #{hasVideo,jdbcType=CHAR},
+      videos = #{videos,jdbcType=VARCHAR},
+      video_rack_status = #{videoRackStatus,jdbcType=CHAR},
+      room_length = #{roomLength,jdbcType=DOUBLE},
+      room_width = #{roomWidth,jdbcType=DOUBLE},
+      room_type = #{roomType,jdbcType=VARCHAR},
+      has_cloakroom = #{hasCloakroom,jdbcType=VARCHAR},
+      has_bay_window = #{hasBayWindow,jdbcType=VARCHAR},
+      has_window = #{hasWindow,jdbcType=VARCHAR},
+      is_wired_loft = #{isWiredLoft,jdbcType=VARCHAR},
+      is_wired_long_and_thin = #{isWiredLongAndThin,jdbcType=VARCHAR},
+      is_bad_lighting = #{isBadLighting,jdbcType=VARCHAR},
+      is_private_window = #{isPrivateWindow,jdbcType=VARCHAR},
+      is_near_street = #{isNearStreet,jdbcType=VARCHAR},
+      cleaning_tools_tag = #{cleaningToolsTag,jdbcType=VARCHAR},
+      door_tag = #{doorTag,jdbcType=VARCHAR},
+      floor_tag = #{floorTag,jdbcType=VARCHAR},
+      kitchen_ware_tag = #{kitchenWareTag,jdbcType=VARCHAR},
+      is_house_state_readonly = #{isHouseStateReadonly,jdbcType=VARCHAR},
+      is_price_readonly = #{isPriceReadonly,jdbcType=VARCHAR},
+      is_room_info_readonly = #{isRoomInfoReadonly,jdbcType=VARCHAR},
+      is_rough_room = #{isRoughRoom,jdbcType=VARCHAR},
+      roof_tag = #{roofTag,jdbcType=VARCHAR},
+      wall_floor_tag = #{wallFloorTag,jdbcType=VARCHAR},
+      wall_tag = #{wallTag,jdbcType=VARCHAR},
+      window_tag = #{windowTag,jdbcType=VARCHAR},
+      others_tear_down_tag = #{othersTearDownTag,jdbcType=VARCHAR},
+      toilet_tag = #{toiletTag,jdbcType=VARCHAR},
+      has_private_kitchen = #{hasPrivateKitchen,jdbcType=VARCHAR},
+      has_toilet_in_bathroom = #{hasToiletInBathroom,jdbcType=VARCHAR},
+      toilet_type = #{toiletType,jdbcType=VARCHAR},
+      temp_price_yuan = #{tempPriceYuan,jdbcType=INTEGER},
+      revalue_price_yuan = #{revaluePriceYuan,jdbcType=INTEGER},
+      plan_id = #{planId,jdbcType=INTEGER},
+      house_id = #{houseId,jdbcType=INTEGER},
+      bi_room_id = #{biRoomId,jdbcType=INTEGER},
+      isz_house_id = #{iszHouseId,jdbcType=VARCHAR},
+      isz_room_id = #{iszRoomId,jdbcType=VARCHAR},
+      isz_room_no = #{iszRoomNo,jdbcType=VARCHAR},
+      bedroom_type = #{bedroomType,jdbcType=VARCHAR},
+      is_verify = #{isVerify,jdbcType=CHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

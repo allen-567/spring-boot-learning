@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+
+    <!--<classPathEntry location="${jdbc.driverLocation}"/>-->
+
+    <!-- 环境配置:
+    id="自定义的配置名称"
+    targetRuntime="MyBatis版本" -->
+    <context id="DB2JAVA" targetRuntime="MyBatis3">
+
+
+        <!--<property name="autoDelimitKeywords" value="false"/>-->
+        <!--<property name="javaFileEncoding" value="UTF-8"/>-->
+
+        <!-- 配置生成pojo的序列化的插件，mybatis支持很多插件，这些插件都在 org.mybatis.generator.plugins包下  -->
+        <plugin type="org.mybatis.generator.plugins.SerializablePlugin" />
+
+        <!--去掉多余的注释-->
+        <commentGenerator>
+            <property name="suppressAllComments" value ="true"/>
+        </commentGenerator>
+
+
+        <!-- 配置生成pojo的toString()方法的插件，mybatis支持很多插件，这些插件都在 org.mybatis.generator.plugins包下 -->
+        <!--<plugin type="org.mybatis.generator.plugins.ToStringPlugin" />-->
+
+        <!-- 注释生成器 -->
+        <!--<commentGenerator>-->
+            <!--<property name="suppressDate" value="true" />-->
+            <!--&lt;!&ndash; 是否去除自动生成的注释 true：是; false:否 &ndash;&gt;-->
+            <!--<property name="suppressAllComments" value="true"/>-->
+        <!--</commentGenerator>-->
+
+        <!-- 数据库配置：
+        driverClass="驱动"
+        connectionURL="数据库url"Laputa
+        userId="用户"BizopsWH
+        password="密码" -->
+        <jdbcConnection
+                driverClass="com.mysql.jdbc.Driver"
+                connectionURL="jdbc:mysql://:3306/Laputa?useUnicode=true&amp;characterEncoding=utf-8&amp;allowMultiQueries=true"
+                userId=""
+                password="">
+            <!--<property name="nullCatalogMeansCurrent" value="true" />-->
+        </jdbcConnection>
+
+        <!-- Java数据类型处理器 -->
+        <javaTypeResolver>
+            <!--forceBigDecimals强制双精度：
+            false:把JDBC DECIMAL 和 NUMERIC 类型解析为 Integer，
+            true:把JDBC DECIMAL 和 NUMERIC 类型解析为java.math.BigDecimal
+            默认fals-->
+            <property name="forceBigDecimals" value="false"/>
+        </javaTypeResolver>
+
+        <!--生成Model类存放位置-->
+        <javaModelGenerator
+                targetPackage="com.cube.model"
+                targetProject="/Users/dankeli/WorkSpace/Idea Cube/spring-boot-learning/spring-boot-mybatis-multids/src/main/java">
+            <!-- enableSubPackages:是否让schema作为包的后缀 -->
+            <property name="enableSubPackages" value="true" />
+            <!-- 从数据库返回的值被清理前后的空格 -->
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
+
+        <!-- SQL映射文件生成器：
+        targetPackage="生成文件的包名"
+        targetProject="已存在的项目包" -->
+        <sqlMapGenerator targetPackage="mybatis.mapper" targetProject="src/main/resources">
+            <property name="enableSubPackages" value="true"/>
+        </sqlMapGenerator>
+
+        <!--生成Dao类存放位置-->
+        <javaClientGenerator targetPackage="com.cube.mapper" targetProject="src/main/java" type="XMLMAPPER">
+            <property name="enableSubPackages" value="true"/>
+
+            <!--<property name="exampleMethodVisibility" value=""/>-->
+            <!--<property name="methodNameCalculator" value=""/>-->
+            <!--<property name="rootInterface" value=""/>-->
+
+        </javaClientGenerator>
+
+        <!-- tableName 为表名. schema 为数据库名称-->
+        <table tableName="rooms" domainObjectName="Room" enableCountByExample="false"
+               enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false">
+
+            <generatedKey column="id" sqlStatement="MySql" identity="true" />
+            <columnOverride column="REMARKS" javaType="java.lang.String" jdbcType="VARCHAR" />
+        </table>
+
+        <!--&lt;!&ndash; tableName 为表名. schema 为数据库名称&ndash;&gt;-->
+        <!--<table tableName="f_bi_room_subject" domainObjectName="RoomSubjectEntity" enableCountByExample="false"-->
+        <!--enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false"-->
+        <!--selectByExampleQueryId="false">-->
+
+        <!--<generatedKey column="id" sqlStatement="MySql" identity="true" />-->
+        <!--<columnOverride column="REMARKS" javaType="java.lang.String" jdbcType="VARCHAR" />-->
+        <!--</table>-->
+
+
+        <!--<table tableName="rooms" domainObjectName="HouseEntity" enableCountByExample="false"-->
+        <!--enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false"-->
+        <!--selectByExampleQueryId="false">-->
+
+        <!--<generatedKey column="id" sqlStatement="MySql" identity="true" />-->
+        <!--<columnOverride column="REMARKS" javaType="java.lang.String" jdbcType="VARCHAR" />-->
+        <!--</table>-->
+    </context>
+</generatorConfiguration>

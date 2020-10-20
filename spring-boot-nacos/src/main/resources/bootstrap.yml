@@ -1,0 +1,21 @@
+#启动的端口号。通过命令行参数 k.port 传入。如果未传入，默认是8080。
+server:
+  port: ${dk.port:8080}
+
+#此文件中的定义，最好不要改变。
+spring:
+  application:
+    #应用名称，通过命令行 dk.name 传入。
+    #如果未传入，默认是值是 project.groupId + ":" + project.artifactId。
+    #！！！！需要正确配置POM中的 spring-boot-maven-plugin 插件和 resources 才能替换！！！！
+    #此名字与配置中心dataId和服务发现名称有关。
+    name: spring-boot-nacos
+  cloud:
+    nacos:
+      config:
+        # 配置中心的地址和端口。通过命令行参数 dk.config 传入。如果未传入，默认值是config.danke.life:8848。
+        server-addr: ${dk.config:config.danke.life:8848}
+        namespace: ${dk.config.namespace:7b3e96e2-e7b4-4b56-8032-7a38a5ae0e63}
+        #公共配置，默认不可动态刷新
+        file-extension: yaml
+        shared-dataids: spring-nacos-add.yaml

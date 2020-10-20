@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<packaging>pom</packaging>
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.1.7.RELEASE</version>
+		<relativePath/> <!-- lookup parent from repository -->
+	</parent>
+	<groupId>com.cube</groupId>
+	<artifactId>spring-boot-learning</artifactId>
+	<version>1.0.0-SNAPSHOT</version>
+	<name>spring-boot-learning</name>
+	<description>spring-boot-learning</description>
+
+	<properties>
+		<java.version>1.8</java.version>
+	</properties>
+
+	<modules>
+		<module>spring-boot-banner</module>
+		<module>spring-boot-helloworld</module>
+		<module>spring-boot-mybatis-annotation-multids</module>
+		<module>spring-boot-mybatis-xml-multids</module>
+		<module>spring-boot-mybatis-multids</module>
+        <module>spring-boot-mybatis-generator</module>
+        <module>spring-boot-thymeleaf</module>
+		<module>spring-boot-freemark</module>
+        <module>spring-boot-hive</module>
+<!--        <module>spring-boot-nacos</module>-->
+        <module>spring-boot-mongodb</module>
+        <module>spring-boot-elasticsearch</module>
+        <module>spring-boot-mongodb-multi</module>
+        <module>spring-boot-rabbitmq</module>
+		<module>spring-boot-kafka</module>
+		<module>spring-boot-rocksdb</module>
+		<module>spring-boot-rjava</module>
+	</modules>
+
+	<build>
+
+	</build>
+
+</project>

@@ -1,0 +1,25 @@
+server:
+  port: 8080
+#数据库配置
+spring:
+  datasource:
+    master:
+      url: jdbc:mysql://rr-2zetk6oj0m9p6g95j.mysql.rds.aliyuncs.com:3306/BizopsWH?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      username:
+      password:
+      type: com.zaxxer.hikari.HikariDataSource
+    cluster:
+    - key: laputa
+      url: jdbc:mysql://rr-2zetk6oj0m9p6g95j.mysql.rds.aliyuncs.com:3306/Laputa?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+      idle-timeout: 20000
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      username:
+      password:
+      type: com.zaxxer.hikari.HikariDataSource
+
+
+mybatis:
+  config-location: classpath:mybatis/mybatis-config.xml
+  mapper-locations: classpath:mybatis/mapper/*.xml
+  type-aliases-package: com.cube.model
